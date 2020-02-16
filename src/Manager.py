@@ -156,7 +156,7 @@ class AltCamManager(Screen):
 		cam = cam.title()
 		if getcamscript(cam):
 			return "Script"
-		if cam[:5] in ("Oscam", "Camd3", "Newcs", "Rucam"):
+		if cam[:5] in ("Oscam", "Ncam", "Camd3", "Newcs", "Rucam"):
 			return cam[:5]
 		elif cam[:4] in ("Mcas", "Gbox", "Mpcs", "Mbox"):
 			return cam[:4]
