@@ -7,9 +7,9 @@ from Softcam import checkconfigdir
 
 config.plugins.AltSoftcam = ConfigSubsection()
 config.plugins.AltSoftcam.actcam = ConfigText(default="none")
-config.plugins.AltSoftcam.camconfig = ConfigText(default="/var/keys",
+config.plugins.AltSoftcam.camconfig = ConfigText(default="/usr/keys",
 	visible_width=100, fixed_size=False)
-config.plugins.AltSoftcam.camdir = ConfigText(default="/var/emu",
+config.plugins.AltSoftcam.camdir = ConfigText(default="/usr/emu",
 	visible_width=100, fixed_size=False)
 config.plugins.AltSoftcam.restartext = ConfigYesNo(default = True)
 
