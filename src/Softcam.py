@@ -11,6 +11,9 @@ def getcamcmd(cam):
 	elif "oscam" in camname:
 		return config.plugins.AltSoftcam.camdir.value + "/" + cam + " -bc " + \
 			config.plugins.AltSoftcam.camconfig.value + "/"
+	elif "ncam" in camname:
+		return config.plugins.AltSoftcam.camdir.value + "/" + cam + " -bc " + \
+			config.plugins.AltSoftcam.camconfig.value + "/"
 	elif "wicard" in camname:
 		return "ulimit -s 512; " + config.plugins.AltSoftcam.camdir.value + \
 		"/" + cam + " -d -c " + config.plugins.AltSoftcam.camconfig.value + \
@@ -81,10 +84,10 @@ def __createdir(list):
 
 def checkconfigdir():
 	if not os.path.exists(config.plugins.AltSoftcam.camconfig.value):
-		__createdir("/var/keys")
-		config.plugins.AltSoftcam.camconfig.value = "/var/keys"
+		__createdir("/usr/keys")
+		config.plugins.AltSoftcam.camconfig.value = "/usr/keys"
 		config.plugins.AltSoftcam.camconfig.save()
 	if not os.path.exists(config.plugins.AltSoftcam.camdir.value):
-		__createdir("/var/emu")
-		config.plugins.AltSoftcam.camdir.value = "/var/emu"
+		__createdir("/usr/emu")
+		config.plugins.AltSoftcam.camdir.value = "/usr/emu"
 		config.plugins.AltSoftcam.camdir.save()
