@@ -11,6 +11,9 @@ def getcamcmd(cam):
 	elif "oscam" in camname:
 		return config.plugins.AltSoftcam.camdir.value + "/" + cam + " -bc " + \
 			config.plugins.AltSoftcam.camconfig.value + "/"
+	elif "oscam-ymod" in camname:
+		return config.plugins.AltSoftcam.camdir.value + "/" + cam + " -bc " + \
+			config.plugins.AltSoftcam.camconfig.value + "/"
 	elif "ncam" in camname:
 		return config.plugins.AltSoftcam.camdir.value + "/" + cam + " -bc " + \
 			config.plugins.AltSoftcam.camconfig.value + "/"
@@ -18,6 +21,9 @@ def getcamcmd(cam):
 		return "ulimit -s 512; " + config.plugins.AltSoftcam.camdir.value + \
 		"/" + cam + " -d -c " + config.plugins.AltSoftcam.camconfig.value + \
 		"/wicardd.conf"
+	elif "mgcamd" in camname:
+		return config.plugins.AltSoftcam.camdir.value + "/" + cam + " -bc " + \
+			config.plugins.AltSoftcam.camconfig.value + "/mg.cfg"
 	elif "camd3" in camname:
 		return config.plugins.AltSoftcam.camdir.value + "/" + cam + " " + \
 			config.plugins.AltSoftcam.camconfig.value + "/camd3.config"

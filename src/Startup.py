@@ -13,7 +13,7 @@ class RestartCam:
 	def restart(self):
 		cam = config.plugins.AltSoftcam.actcam.value
 		if cam != "none":
-			self.session.open(MessageBox, _("Restarting %s") % cam, 
+			self.session.open(MessageBox, _("Restarting %s") % cam,
 				type = MessageBox.TYPE_INFO, timeout = 4)
 			stopcam(cam)
 			service = self.session.nav.getCurrentlyPlayingServiceReference()
@@ -41,7 +41,7 @@ class StartCamOnStart:
 
 	def checkprocess(self, result, retval, extra_args):
 		processes = result.lower()
-		camlist = ["oscam", "ncam", "mgcamd", "wicard", "camd3", "mcas", "cccam",
+		camlist = ["oscam", "oscam-ymod", "ncam", "mgcamd", "wicard", "camd3", "mcas", "cccam",
 			"gbox", "mpcs", "mbox", "newcs", "vizcam", "rucam"]
 		camlist.insert(0, config.plugins.AltSoftcam.actcam.value)
 		for cam in camlist:
