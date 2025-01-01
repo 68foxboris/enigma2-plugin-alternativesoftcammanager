@@ -14,6 +14,8 @@ def getcamcmd(cam):
 		return "%s/%s start" % (camdir, cam)
 	elif "oscam" in camname:
 		return "%s/%s -bc %s/" % (camdir, cam, camconfig)
+	elif "ncam" in camname:
+		return "%s/%s -bc %s/" % (camdir, cam, camconfig)
 	elif "wicard" in camname:
 		return "ulimit -s 512; %s/%s -d -c %s/wicardd.conf" % (camdir, cam, camconfig)
 	elif "camd3" in camname:
@@ -61,10 +63,10 @@ def checkconfigdir():
 					break
 
 	if not os.path.exists(config.plugins.AltSoftcam.camconfig.value):
-		createdir("/var/keys")
-		config.plugins.AltSoftcam.camconfig.value = "/var/keys"
+		createdir("/etc/tuxbox/config")
+		config.plugins.AltSoftcam.camconfig.value = "/etc/tuxbox/config"
 		config.plugins.AltSoftcam.camconfig.save()
 	if not os.path.exists(config.plugins.AltSoftcam.camdir.value):
-		createdir("/var/emu")
-		config.plugins.AltSoftcam.camdir.value = "/var/emu"
+		createdir("/usr/bin/cam")
+		config.plugins.AltSoftcam.camdir.value = "/usr/bin/cam"
 		config.plugins.AltSoftcam.camdir.save()

@@ -12,9 +12,9 @@ from .Softcam import checkconfigdir, getcamcmd, stopcam
 
 config.plugins.AltSoftcam = ConfigSubsection()
 config.plugins.AltSoftcam.actcam = ConfigText(default="none")
-config.plugins.AltSoftcam.camconfig = ConfigText(default="/var/keys",
+config.plugins.AltSoftcam.camconfig = ConfigText(default="/etc/tuxbox/config",
 		visible_width=100, fixed_size=False)
-config.plugins.AltSoftcam.camdir = ConfigText(default="/var/emu",
+config.plugins.AltSoftcam.camdir = ConfigText(default="/usr/bin/cam",
 		visible_width=100, fixed_size=False)
 config.plugins.AltSoftcam.restartext = ConfigYesNo(default=True)
 
@@ -42,7 +42,7 @@ class StartCamOnStart():
 		if hasattr(result, 'decode'):
 			result = result.decode("utf-8")
 		processes = result.lower()
-		camlist = ["oscam", "mgcamd", "wicard", "camd3", "mcas", "cccam",
+		camlist = ["oscam", "ncam", "mgcamd", "wicard", "camd3", "mcas", "cccam",
 				"gbox", "mpcs", "mbox", "newcs", "vizcam", "rucam"]
 		camlist.insert(0, config.plugins.AltSoftcam.actcam.value)
 		for cam in camlist:
